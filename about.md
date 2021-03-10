@@ -12,7 +12,7 @@ order: 4
 kakaoTalk : whdmlcks0729 <br>
 E-mail : cec0729@gmail.com <br><br>
 
- ## 🧰 <성장> 
+ ##  🧰 <성장> 
 
  - **인하대학교 경영학과 비룡장학생(전액장학금) 입학** <br>
 
@@ -37,7 +37,7 @@ E-mail : cec0729@gmail.com <br><br>
   2) COVID19가 서울지역 유동인구에 미치는 영향 <br>
   3) Youtube 인기동영상이 되기 위한 기준점과 이에 따른 시사점 <br>
 
-##  <사용언어> <br><br> 
+## ⌨️ <사용언어> <br><br> 
 
 - Python ( pandas, numpy, sckit_learn ) <br>
 - SQL ( MySQL , postgreSQL) <br>
@@ -53,7 +53,7 @@ E-mail : cec0729@gmail.com <br><br>
 - 데이터분석 프로젝트 완성하기 ( 데이터 수집 , EDA, 모델링 및 머신러닝 ) <br>
 
 
-> ## 📗 <데이터분석 스터디를 위해 읽은 책>
+## 📗 <데이터분석 스터디를 위해 읽은 책>
 
 - 파이썬 라이브러리를 활용한 데이터분석 _ 한빛미디어
 - 데이터 시각화 교과서 _ 책만

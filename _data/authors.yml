@@ -12,11 +12,11 @@ author1:
 
   # This photo will be used in the about section
   picture:
-    path:            /Users/cho_euichan/Desktop/사진/profile.jpeg
+    path:            /assets/img/profile.jpeg
     # srcset is optional, but can be used to provide higher res versions for retina displays
     srcset:
-      1x:            /Users/cho_euichan/Desktop/사진/profile.jpeg
-      2x:            /Users/cho_euichan/Desktop/사진/profile.jpeg
+      1x:            /assets/img/profile.jpeg
+      2x:            /assets/img/profile.jpeg
 
   # Social media icons in sidebar
   # Comment/uncommet to show/hide

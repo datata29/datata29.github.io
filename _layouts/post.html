@@ -24,6 +24,16 @@ layout: base
 
 {% include post.html post=page link_title=false %}
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FBTD8XPGJQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FBTD8XPGJQ');
+</script>
+
 <hr class="dingbat related" />
 
 {% assign addons = site.hydejack.post_addons %}

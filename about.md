@@ -4,7 +4,7 @@ title: Profile
 description: >
   
 menu: true
-order: 4
+order: 6
 ---
 
 ## 📱 <컨택> 

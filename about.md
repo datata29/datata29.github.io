@@ -12,6 +12,8 @@ order: 6
 kakaoTalk : whdmlcks0729 <br>
 E-mail : cec0729@gmail.com <br><br>
 
+---
+
 ##  🧰 <성장> 
 
  - **인하대학교 경영학과 비룡장학생(전액장학금) 입학** <br>
@@ -37,6 +39,8 @@ E-mail : cec0729@gmail.com <br><br>
   2) COVID19가 서울지역 유동인구에 미치는 영향 <br>
   3) Youtube 인기동영상이 되기 위한 기준점과 이에 따른 시사점 <br>
 
+---
+
 ## ⌨️ <사용언어> <br><br> 
 
 - Python ( pandas, numpy, sckit_learn ) <br>
@@ -44,6 +48,7 @@ E-mail : cec0729@gmail.com <br><br>
 - Tableau  <br>
 - Latex  <br>
 
+---
 
 ##  📆 <목표> <br><br>
 

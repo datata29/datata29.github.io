@@ -26,6 +26,9 @@ layout: base
 
 <article class="page" role="article">
   <header>
+    {% if page.use_math %}
+      {% include mathjax_support.html %}
+    {% endif %}
     <article id="post{{ post.id | replace:'/','-' }}" class="page post{% if link_title %} mb6{% endif %}" role="article">
       <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FBTD8XPGJQ"></script>

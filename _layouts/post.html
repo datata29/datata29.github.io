@@ -23,6 +23,10 @@ layout: base
 ---
 
 {% include post.html post=page link_title=false %}
+{% if page.use_math %}
+  {% include mathjax_support.html %}
+{% endif %}
+
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FBTD8XPGJQ"></script>

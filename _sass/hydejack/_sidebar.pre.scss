@@ -35,35 +35,48 @@ hy-drawer {
 
   @media screen {
     padding: 2rem 1rem; // inline
-    max-width: 38rem; // link
+    min-height: 640px; // link
     min-height: 100vh; // link
 
     // <<< link
-   //  > .hy-drawer-content.hy-drawer-left {
-    //   width: calc(18rem + 1px);
-      // left: -17.5rem;
-      // box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
-   //  }
+    > .hy-drawer-content.hy-drawer-left {
+      width: calc(70vh + 1px);
+      left: -17.5rem;
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+    }
 
-    // --hy-drawer-width: calc(18rem + 1px);
-    // --hy-drawer-slide-width: 17.5rem;
-    // --hy-drawer-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+    --hy-drawer-width: calc(70vh + 1px);
+    --hy-drawer-slide-width: 17.5rem;
+    --hy-drawer-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
 
-     //&.loaded {
-      // min-height: 0;
-       //padding: 0;
+    &.loaded {
+      min-height: 0;
+      padding: 0;
     }
     // >>>
   }
 
   @media screen and (min-width: $break-point-3) {
-    margin-left: 22rem;
-    max-width: 42rem;
+    // <<< inline
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 18rem;
+    margin-left: 0;
+    // >>>
+
+    > .hy-drawer-content.hy-drawer-left { box-shadow: none; } // link
+    --hy-drawer-box-shadow: none; // link
   }
 
   @media screen and (min-width: $break-point-dynamic) {
+    width: calc(50% - 28rem); // inline
+    > .hy-drawer-content.hy-drawer-left  { width: calc(50% - 28rem); left: calc(-50% + 28.5rem); } // link
+    --hy-drawer-width: calc(50% - 28rem); // link
+    --hy-drawer-slide-width: calc(50% - 28.5rem); // link
   }
-
+}
 
 .sidebar-bg {
   // <<< inline
@@ -108,7 +121,7 @@ hy-drawer {
   }
 
   @media screen and (min-width: $break-point-dynamic) {
-  
+    left: auto;
     width: 15rem;
   }
   // >>>>>

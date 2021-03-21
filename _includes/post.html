@@ -32,7 +32,13 @@
 
     {% include message.html text=post.description hide=page.hide_description %}
   </header>
+  {% for tag_slug in post.tags %}
+    {% unless tag.header-img %}
+      {% assign tag = site.featured_tags | where: "slug", tag_slug | first %}
+    {% endunless %}
+  {% endfor %}
 
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   {% unless include.excerpt %}
     {{ post.content }}
   {% else %}

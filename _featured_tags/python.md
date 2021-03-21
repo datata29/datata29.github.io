@@ -2,7 +2,7 @@
 layout: list
 title: Python
 slug: python
-category: 데이터분석
+category: data
 menu: false
 order: 1
 ---

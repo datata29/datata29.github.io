@@ -2,7 +2,7 @@
 layout: list
 title: SQL
 slug: sql
-category: 데이터분석
+category: data
 menu: false
 order: 2
 ---

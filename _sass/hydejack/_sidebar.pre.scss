@@ -21,6 +21,8 @@
 .sidebar {
   color: rgba(255,255,255,.75); // inline
   text-align: left; // inline
+  min-height: 100vh;
+  max-width: 20vh;
 
   a {
     color: #fff; // inline
@@ -84,7 +86,7 @@ hy-drawer {
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
+  left: calc(50% - 50vw);
   background: #202020 center / cover;
 
   /* make sidebar slightly darker to increase text readability (when using a background image) */

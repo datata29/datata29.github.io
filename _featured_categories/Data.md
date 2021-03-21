@@ -1,7 +1,7 @@
 ---
 layout: list
-title: 데이터 분석
-slug: 데이터 분석
+title: Data 
+slug: data
 menu: true
 submenu: true
 order: 1

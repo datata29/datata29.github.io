@@ -26,6 +26,14 @@
 
       {% assign author = site.data.authors.first[1] | default:site.author %}
 
+      <!-- search box -->
+    <form action="/search">
+      <div class="tipue_search_box">
+        <input type="text" name="q" id="tipue_search_input" placeholder="&#xF002;  Search" pattern=".{2,}" title="최소 2글자 이상" required></div>
+      <div style="clear: both;"></div>
+    </form>
+    <br/>
+
       <div class="sidebar-social">
         {% include social.html author=author %}
       </div>

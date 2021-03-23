@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: category
 title: Insight
 slug: insight
 menu: true

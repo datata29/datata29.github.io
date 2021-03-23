@@ -1,0 +1,18 @@
+---
+layout: base
+---
+
+
+{% assign category = site.featured_categories | where: "slug", page.slug | first %}
+
+{% assign tag = site.featured_tags | where: "category", page.slug %}
+
+{% for t in categories %}
+{% assign posts = site.categories[t.slug] %}
+    {% for post in paginator.posts %}
+        {% include post.html post=post link_title=true excerpt=true %}
+    {% endfor %}
+
+{% include pagination.html %}
+
+

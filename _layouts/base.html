@@ -72,15 +72,7 @@ layout: compress
 
 <head>
   <article id="post{{ post.id | replace:'/','-' }}" class="page post{% if link_title %} mb6{% endif %}" role="article">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FBTD8XPGJQ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-FBTD8XPGJQ');
-  </script>
+
   {% include head.html %}
 </head>
 

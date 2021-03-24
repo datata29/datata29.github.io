@@ -1,4 +1,4 @@
 User-agent: *
  Allow: /
- Sitemap: "https://datata29.github.io/sitemap.xml"
+ Sitemap: https://datata29.github.io/sitemap.xml
  

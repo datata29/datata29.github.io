@@ -27,7 +27,6 @@ E-mail : cec0729@gmail.com <br><br>
    - 다양한 학과 사람들과의 커뮤니케이션 (인문대, 상경대, 자연대, 공대) <br>
    - 많은 데이터분석 프로젝트 경험 <br>
      => 경영/기획에 대한 자신감 + 데이터 분석가를 커리어로 희망 <br>
-  
   ( 인빅블로그 : https://inbig.github.io )  <br><br>
  
  - **인하대학교 통계학과 복수전공** <br>
@@ -37,6 +36,7 @@ E-mail : cec0729@gmail.com <br><br>
   1) World Ramen Ranking <br>
   2) COVID19가 서울지역 유동인구에 미치는 영향 <br>
   3) Youtube 인기동영상이 되기 위한 기준점과 이에 따른 시사점 <br>
+  4) 한이음 ICT 멘토링 - e모빌리티와 환경
 
 ---
 

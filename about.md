@@ -30,7 +30,8 @@ E-mail : cec0729@gmail.com <br><br>
   ( 인빅블로그 : https://inbig.github.io )  <br><br>
  
  - **인하대학교 통계학과 복수전공** <br>
-  : 데이터분석가가 되기 위한 노력 <br><br>
+   - 데이터분석가가 되기 위한 노력 <br>
+   - 회귀분석, 실험계획법, 수리통계학 수강 <br><br>
   
  - **다양한 데이터분석 프로젝트 진행** <br>
   1) World Ramen Ranking <br>

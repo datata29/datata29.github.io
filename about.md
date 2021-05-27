@@ -41,15 +41,15 @@ E-mail : cec0729@gmail.com <br><br>
 
 ## ⌨️ <사용언어> <br>
 
-- Python ( pandas, numpy, sckit_learn ) <br>
-- SQL ( MySQL , postgreSQL) <br>
-- Tableau  <br>
-- Latex  <br>
+- `Python` ( `pandas`, `numpy`, `sckit_learn` ) <br>
+- `SQL` ( `MySQL` , `postgreSQL`) <br>
+- `Latex`  <br>
+- `Tableau`  <br>
 
 
 ---
 
-## 👍 <나의 장점> <br>
+## 👍 <장점> <br>
 
 - `추진력`이 강합니다. <br>
 - `성장`에 대한 욕심이 많습니다. <Br>

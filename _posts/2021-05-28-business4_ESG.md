@@ -41,7 +41,7 @@ ESG는 다음과 같은 특징이 있다.<br>
 
 Larry Fink는 매년 CEO들에게 Annual Letter를 보낸다.<br>
 2021년에도 Annual Letter를 발간했는데 <br>
-이 Letter에서 Fink는 ESG를 다시한번 강조한다. <br><br>
+이 Letter에서 Fink는 ESG를 다시한번 강조했다. <br><br>
 
 2021년 Annual Letter는 다음과 같이 5가지로 요약할 수 있다.<br>
 - COVID-19 팬데믹이 ESG의 중요성을 절실하게 깨닫게 했다.<br>

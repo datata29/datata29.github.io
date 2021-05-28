@@ -12,8 +12,8 @@ ESG란 무엇일까? <br>
 우리가 ESG에 대해 놓치고 있던 것은 무엇일까?<br><br>
 
 
-## ✋🏾 reference
- [만만닥터 김싸부](https://www.youtube.com/channel/UCEd49pYeu1ZW2ZMiiMMpgBg) 
+### ✋🏾 이 포스팅은 다음을 참고하여 작성했습니다.
+ [만만닥터 김싸부 : 김종대 교수 유튜브](https://www.youtube.com/channel/UCEd49pYeu1ZW2ZMiiMMpgBg) 
 
 ---
 

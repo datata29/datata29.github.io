@@ -9,8 +9,11 @@ author: author1
 ---
 
 ESG란 무엇일까? <br>
-우리가 ESG에 대해 놓치고 있던 것은 무엇일까?<br>
+우리가 ESG에 대해 놓치고 있던 것은 무엇일까?<br><br>
 
+
+## ✋🏾 reference
+ [만만닥터 김싸부](https://www.youtube.com/channel/UCEd49pYeu1ZW2ZMiiMMpgBg) 
 
 ---
 
@@ -80,6 +83,7 @@ Larry Fink는 매년 CEO들에게 Annual Letter를 보낸다.<br>
   - 임원의 보수<br>
   - 공정 경쟁 위반 활동<br>
   - 조세 정책<br>
+
 
 
 

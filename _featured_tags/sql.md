@@ -1,5 +1,5 @@
 ---
-layout: list
+layout: page
 title: SQL
 slug: sql
 category: data

@@ -26,7 +26,7 @@ E-mail : cec0729@gmail.com <br><br>
    - 조직의 시스템을 처음부터 만든 경험  <br>
    - 다양한 학과 사람들과의 커뮤니케이션 (인문대, 상경대, 자연대, 공대) <br>
    - 많은 데이터분석 프로젝트 경험 <br>
-   <a href="https://inbig.kr">( 인빅블로그 : https://inbig.kr ) </a> <br><br>
+   <a href="https://www.inbig.kr">( 인빅블로그 : https://www.inbig.kr ) </a> <br><br>
  - **인하대학교 통계학과 복수전공** <br>
    - 데이터 분석 능력을 갖추기 위한 노력 <br>
    - 회귀분석, 실험계획법, 수리통계학 수강 <br><br>

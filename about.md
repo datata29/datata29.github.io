@@ -8,14 +8,14 @@ menu: true
 order: 6
 ---
 
-## 📱 <컨택> 
+## 📱 컨택 
 
-kakaoTalk : whdmlcks0729 <br>
-E-mail : cec0729@gmail.com <br><br>
+* kakaoTalk : whdmlcks0729 <br>
+* E-mail : cec0729@gmail.com <br><br>
 
 ---
 
-##  🧰 <성장> 
+##  🧰 성장 
 
  - **인하대학교 경영학과 비룡장학생(전액장학금) 입학** <br>
 
@@ -40,7 +40,7 @@ E-mail : cec0729@gmail.com <br><br>
 
 ---
 
-## ⌨️ <사용언어> <br>
+## ⌨️ 사용언어 <br>
 
 - `Python` ( `pandas`, `numpy`, `sckit_learn` ) <br>
 - `SQL` ( `MySQL` , `postgreSQL`) <br>
@@ -50,7 +50,7 @@ E-mail : cec0729@gmail.com <br><br>
 
 ---
 
-## 👍 <장점> <br>
+## 👍 장점 <br>
 
 - **추진력**이 강합니다. <br>
 - **성장**에 대한 욕심이 많습니다. <Br>

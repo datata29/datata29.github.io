@@ -8,7 +8,7 @@ author1:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    인사이트를 갖춘 <br> 데이터 분석가 , 조의찬입니다.
+    데이터 문해력과 툴 활용능력을 갖춘 <br> 조의찬입니다.
 
   # This photo will be used in the about section
   picture:
@@ -23,7 +23,7 @@ author1:
   # Rearrange to change the order in which they appear
   social:
     #twitter:         <username>
-    github:          <username>
+    #github:          <username>
     email:           mailto:<cec0729@gmail.com>
     # rss:             https://<url>/feed.xml
     # facebook:        <username>

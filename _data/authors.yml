@@ -8,7 +8,7 @@ author1:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    데이터 문해력과 툴 활용능력을 <br> 갖춘  조의찬입니다.
+    데이터 문해력과 툴 활용능력을 갖춘 <br>  조의찬입니다.
 
   # This photo will be used in the about section
   picture:

@@ -12,9 +12,10 @@ order: 6
 
 * kakaoTalk : whdmlcks0729 <br>
 * E-mail : cec0729@gmail.com <br>
-* Tableau public : <a href="https://public.tableau.com/app/profile/.31863300">(datata29) <br><br>
+* Tableau public : datata29 <br> <a href="https://public.tableau.com/app/profile/.31863300">(태블로 프로필 링크) <br><br>
 
 ---
+
 ##  🔨 경력
 
 - **위대한 상상 (요기요) 플랫폼 사업본부 B2C 기획파트 (2021.12.20 ~ )**<br>

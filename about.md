@@ -12,7 +12,8 @@ order: 6
 
 * kakaoTalk : whdmlcks0729 <br>
 * E-mail : cec0729@gmail.com <br>
-* Tableau public : datata29 <br> <a href="https://public.tableau.com/app/profile/.31863300">(태블로 프로필 링크) <br><br>
+* Tableau public : datata29 <br> <a href="https://public.tableau.com/app/profile/.31863300">(태블로 프로필 링크) 
+<br><br>
 
 ---
 
@@ -35,16 +36,12 @@ order: 6
    - 많은 데이터분석 프로젝트 경험 <br>
    <a href="https://www.inbig.kr">( 인빅블로그 : https://www.inbig.kr ) </a> <br><br>
 
- - **인하대학교 통계학과 복수전공** <br>
-   - 데이터 분석 능력을 갖추기 위한 노력 <br>
-   - 회귀분석, 실험계획법, 수리통계학 수강 <br><br>
-
  - **다양한 데이터분석 프로젝트 진행** <br>
    - KBL 올스타 선정 데이터분석 프로젝트 <br>
    - Youtube 인기동영상이 되기 위한 기준점과 이에 따른 시사점 <br>
 
 ---
-## ⌨️ 사용언어 <br>
+## ⌨ 사용언어 <br>
 
 - `Python` ( `pandas`, `numpy`, `sckit_learn` ) <br>
 - `SQL` ( `MySQL` , `postgreSQL`, `Big query`) <br>

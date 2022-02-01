@@ -12,8 +12,7 @@ order: 6
 
 * kakaoTalk : whdmlcks0729 <br>
 * E-mail : cec0729@gmail.com <br>
-* Tableau public : datata29 <br> <a href="https://public.tableau.com/app/profile/.31863300">(태블로 프로필 링크) 
-<br><br>
+* Tableau public : datata29 <br> <a href="https://public.tableau.com/app/profile/.31863300">(태블로 프로필 링크)</a><br><br>
 
 ---
 

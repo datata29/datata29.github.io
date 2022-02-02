@@ -25,7 +25,7 @@
   &::before {
     /* make sidebar slightly darker to increase text readability (when using a background image) */
     content: "";
-    position: absolute;
+    position: relative;
     z-index: 2;
     top: 0;
     left: 0;

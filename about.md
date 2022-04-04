@@ -10,10 +10,10 @@ order: 6
 
 ## 📱 컨택 
 
-* Linkedin : <a href="https://www.linkedin.com/in/datata29/"> 조의찬 (링크드인) </a> <br>
+* Linkedin : <a href="https://www.linkedin.com/in/datata29/"> 조의찬 (링크드인) : https://www.linkedin.com/in/datata29/ </a> <br>
 * kakaoTalk : whdmlcks0729 <br>
 * E-mail : cec0729@gmail.com <br>
-* Tableau public : datata29 <br> <a href="https://public.tableau.com/app/profile/.31863300">(태블로 프로필 링크)</a><br><br>
+* Tableau public :  <a href="https://public.tableau.com/app/profile/.31863300">datata29 : (태블로 프로필 링크)</a><br><br>
 
 ---
 

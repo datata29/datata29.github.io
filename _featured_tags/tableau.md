@@ -2,7 +2,7 @@
 layout: list
 title: Tableau
 slug: Tableau
-category: 프로젝트
+category: 분석 프로젝트
 menu: false
 order: 2
 description: >

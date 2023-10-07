@@ -27,11 +27,11 @@ title:                 Datata29
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  데이터 문해력과 툴 활용능력을 <br> 갖춘 조의찬입니다.
+  데이터 분석가 조의찬입니다. 
 
 # A shorter description for the sidebar.
 tagline:               >
-  데이터 문해력과 툴 활용능력을 <br> 갖춘 조의찬입니다.
+  데이터 분석가 조의찬입니다.
   
 # A list of keywords for your blog
 keywords:              [Data Analysis]
@@ -48,7 +48,7 @@ author:
   # twitter:             <username>
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2020. All rights reserved.
+copyright:             © 2023. All rights reserved.
 
 # Add links to the footer.
 # Typically you'll want to link to your impress, cookies or privacy policy, etc.

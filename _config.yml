@@ -27,11 +27,11 @@ title:                 Datata29
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  게임 데이터 분석가 조의찬입니다. 
+  게임 데이터 분석가 <br> 조의찬입니다. 
 
 # A shorter description for the sidebar.
 tagline:               >
-  게임 데이터 분석가 조의찬입니다.
+  게임 데이터 분석가 <br> 조의찬입니다.
   
 # A list of keywords for your blog
 keywords:              [Data Analysis]

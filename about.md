@@ -15,7 +15,6 @@ order: 6
 * Tableau public :  <a href="https://public.tableau.com/app/profile/.31863300">datata29 : (태블로 프로필 링크)</a><br><br>
 
 ---
-
 ##  🔨 경력
 
 - **컴투스 사업운영센터 BI기획파트 (2022.8.16 ~  )** <br>

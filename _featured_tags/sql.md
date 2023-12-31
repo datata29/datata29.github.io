@@ -1,8 +1,9 @@
 ---
-layout: tag_blog
+layout: tag_list
+type: tag
 title: SQL
 slug: sql
 category: 가이던스
-menu: false
+sidebar: true
 order: 2
 ---

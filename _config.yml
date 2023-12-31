@@ -166,36 +166,36 @@ collections:
 # ========================================================================================
 
 exclude:
+  - .jekyll-cache
+  - .sass-cache
+  - '*.toml'
   - vendor
   - Gemfile
   - Gemfile.lock
   - node_modules
-  - package.json
-  - package-lock.json
 include:
+  - .well-known
   - LICENSE.md
+
 
 
 # Plugins and Plugin Configuration
 # ========================================================================================
 
 plugins:
-  # - jekyll-avatar
-  # - jekyll-default-layout
+  - jekyll-default-layout
   - jekyll-feed
-  # - jekyll-gist
-  # - jekyll-optional-front-matter
+  - jekyll-optional-front-matter
   - jekyll-paginate
-  # - jekyll-readme-index
-  # - jekyll-redirect-from
+  - jekyll-readme-index
+  - jekyll-redirect-from
   - jekyll-relative-links
-  # - jekyll-remote-theme
   - jekyll-seo-tag
-  - jekyll-gist
-  - jemoji
   - jekyll-sitemap
+  - jekyll-titles-from-headings
   - jekyll-include-cache
-  # - jekyll-titles-from-headings
+  - jekyll-last-modified-at
+  - jemoji
 
 # Theme
 # ---------------------------------------------------------------------------------------

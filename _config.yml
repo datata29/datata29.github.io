@@ -59,7 +59,7 @@ copyright:             © 2023. All rights reserved.
 #     href:              /cookies-policy/
 
 # Format of the permalinks
-permalink:             none
+permalink:             pretty
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              10
@@ -158,17 +158,16 @@ hydejack:
 
 collections:
   featured_categories:
-    permalink:         /:name/
+    permalink:         /category/:name/
     output:            true
 
   featured_tags:
-    permalink:         /tag-:name/
+    permalink:         /tag/:name/
     output:            true
 
   projects:
     permalink:         /projects/:path/
     output:            true
-
 
 # File inclusion/exclusion
 # ========================================================================================

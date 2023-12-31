@@ -120,8 +120,8 @@ hydejack:
   # If you do not use Google Fonts, set to `true`.
   no_google_fonts:     false
 
-  # Set to `true` if you don't want to show an icon indicating external links
-  no_mark_external:    false
+ # Set to `true` if you don't want to show an icon indicating external links
+  no_mark_external:    true
 
   # Set to `true` if third party plugins fail to work with dynamically loaded pages
   no_push_state:       false
@@ -129,13 +129,38 @@ hydejack:
   # Set to `true` if you want to disable the drawer
   no_drawer:           false
 
+  # Set to `true` if you don't to use the auto-hiding (JavaScript based) navbar.
+  # Note that this will not hide the navbar completely, only replace it with a static one.
+  # Use custom css to hide completely, e.g. `#_navbar { display: none }`.
+  no_navbar:           false
+
+  # Set to true to disable the built-in search functionality.
+  # Note that search is disabled during local use to save on build time.
+  # Run Jekyll with the `JEKYLL_ENV` environment variable set to `production` to enable.
+  no_search:           false
+
   # Set to `true` if you do not want parts of the css inlined in <head/>
-  # This *may* be benefitial when serving the site over HTTP/2.
+  # This will increase site build speed dramatically!
   no_inline_css:       false
+
+  # Set to `true` if you don't intend on changing the accent color on a per-page basis.
+  # This will increase site build speed!
+  no_page_style:       true
 
   # Code blocks and tables "break" the layout by spanning the full available width.
   # Set this to true if you want them to be the same width as other content.
-  no_break_layout:     false
+  no_break_layout:     true
+
+  # Set to `true` to disable the dynamic Table of Contents on large screens.
+  no_toc:              false
+
+  # When set to `true`, will not extend the content in the "third column" on large screens.
+  # Instead, all content will remains within the center column.
+  # Note that this will not affect the Table of Contents, use `no_toc` instead.
+  no_third_column:     false
+
+  # Set to `true` if you don't like oversized headlines on large screens.
+  no_large_headings:   true
 
   # Set to `true` if you do not want to expose your resume and projects
   # in machine-readable formats.
@@ -145,12 +170,36 @@ hydejack:
   # This only affects the meta tag, not the color specified in the app manifest.
   no_theme_color:      false
 
+  # Disable the breadcrumbs above the title
+  no_breadcrumbs:      false
+
   # Set to `true` when building with the `--lsi` option
   use_lsi:             false
 
   # When using Google Analytics, set to `true` to display a cookie notice banner.
   # When enabled, no user-related data will be stored until the user gives consent.
-  cookies_banner:      false
+  cookies_banner:      true
+
+  # Set to `true` if you would like to add a "Powered by Hydejack" link in the footer.
+  # Note that this setting has no effect when using the free version.
+  advertise:           false
+
+  # Buyers of the PRO version can opt to hide all dates from the theme.
+  # Frequent consumers of online content will know that nothing devalues a post like
+  # seeing an old date.
+  hide_dates:          false
+
+  hide_last_modified:  false
+  # Note that dark mode only works in the PRO version of Hydejack.
+  dark_mode:
+    # Set to `true` to always use the dark theme.
+    always:            true
+
+    # Set to `true` to use the dark theme based on visitors' preference (OS setting).
+    dynamic:           true
+
+    # Set to `true` to allow visitors to switch between light and dark mode.
+    icon:              false
 
 
 # Collections

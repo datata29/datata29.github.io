@@ -59,11 +59,13 @@ copyright:             © 2023. All rights reserved.
 #     href:              /cookies-policy/
 
 # Format of the permalinks
-permalink:             pretty
+permalink:             none
 
 # Pagination configuration (used by the `blog` layout)
-paginate:              5
+paginate:              10
 paginate_path:         /page-:num/
+excerpt_separator:     <!--more-->
+
 
 
 # Customizaton
@@ -73,9 +75,15 @@ paginate_path:         /page-:num/
 accent_image:          /assets/img/blank_sidebar_2.jpeg
 accent_color:          '#4fb1ba'
 
+
+# This is used for the `theme-color` meta tag,
+# which changes the background color of the browser UI in certain browsers.
+# Defaults to `accent_color`.
+theme_color:           rgb(31,57,75)
+
 # The string encoding which fonts to fetch from Google Fonts.
 # See: <https://qwtel.com/hydejack/docs/configuration/>
-google_fonts:          Roboto+Slab:700|Noto+Sans:400,400i,700,700i
+google_fonts:          Noto+Sans+KR|JetBrains+Mono|Nanum+Gothic+Coding
 
 # The text font. Expects a string that is a valid CSS font-family value.
 font:                  Noto Sans, Helvetica, Arial, sans-serif
@@ -150,11 +158,11 @@ hydejack:
 
 collections:
   featured_categories:
-    permalink:         /category/:name/
+    permalink:         /:name/
     output:            true
 
   featured_tags:
-    permalink:         /tag/:name/
+    permalink:         /tag-:name/
     output:            true
 
   projects:

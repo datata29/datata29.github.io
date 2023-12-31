@@ -1,7 +1,7 @@
 ---
 layout: list
-title: 책 리뷰
-slug: 책 리뷰
+title: book review
+slug: book review
 sidebar: true
 order: 4
 description: >

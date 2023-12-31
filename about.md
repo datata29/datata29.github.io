@@ -3,9 +3,8 @@ layout: about
 title: Profile
 description: >
   
-menu: true
-
-order: 6
+sidebar: true
+order: 5
 ---
 
 ## 📱 컨택 

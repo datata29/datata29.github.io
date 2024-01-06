@@ -19,7 +19,7 @@ baseurl:               ''
 
 # Language of your content in 2-letter code, e.g.: en, de.
 # You may also provide a location, e.g.: en-us, de_AT.
-lang:                  en
+lang:                  ko-KR, en-US
 
 # The title of your blog. Used in the sidebar and the browser tab.
 title:                 Datata29
@@ -62,10 +62,8 @@ copyright:             © 2023. All rights reserved.
 permalink:             pretty
 
 # Pagination configuration (used by the `blog` layout)
-paginate:              10
+paginate:              5
 paginate_path:         /page-:num/
-excerpt_separator:     <!--more-->
-
 
 
 # Customizaton
@@ -207,11 +205,11 @@ hydejack:
 
 collections:
   featured_categories:
-    permalink:         /category/:name/
+    permalink:         /:name/
     output:            true
 
   featured_tags:
-    permalink:         /tag/:name/
+    permalink:         /tag-:name/
     output:            true
 
   projects:

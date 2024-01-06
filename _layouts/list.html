@@ -14,24 +14,27 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-layout: base
+layout: page
 ---
 
-{% assign strings = site.data.strings %}
+{{ content }}
 
-<div class="page">
-  <h1 class="page-title">{{ page.title | default:strings.not_found.title | default: "404: Page Not Found" }}</h1>
-  <div class="hr pb0"></div>
+{% assign posts = site.categories[page.slug] | default:site.tags[page.slug] | default:site.posts %}
 
-  {% assign test = page.content | strip_newlines %}
-  {% if test != "" %}
-    {{ content }}
-  {% else %}
-    {% capture home_link %}<a href="{{ '/' | relative_url }}">{{ strings.not_found.home_link | default:"Head back home" }}</a>{% endcapture %}
-    {% assign text = strings.not_found.message
-      | default:"Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <!--home_link--> to try finding it again." %}
-    <p class="lead">
-      {{ text | replace:"<!--home_link-->", home_link }}
-    </p>
-  {% endif %}
-</div>
+{% assign date_formats  = site.data.strings.date_formats               %}
+{% assign list_group_by = date_formats.list_group_by | default:"%Y"    %}
+{% assign list_entry    = date_formats.list_entry    | default:"%d %b" %}
+
+{% assign prev_date = 0 %}
+{% if page.no_groups %}<ul class="related-posts">{% endif %}
+{% for post in posts %}
+  {% assign current_date = post.date | date:list_group_by %}
+  {% unless page.no_groups %}{% if current_date != prev_date %}
+    {% unless forloop.first %}</ul>{% endunless %}
+    <h2 id="{{ list_group_by | slugify }}-{{ current_date | slugify }}" class="hr-bottom">{{ current_date }}</h2>
+    <ul class="related-posts">
+    {% assign prev_date = current_date %}
+  {% endif %}{% endunless %}
+  {% include_cached components/post-list-item.html post=post format=list_entry %}
+  {% if forloop.last %}</ul>{% endif %}
+{% endfor %}

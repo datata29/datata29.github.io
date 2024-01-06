@@ -9,13 +9,6 @@
   <header id="_sidebar" class="sidebar{% if include.invert %} invert{% endif %}" role="banner">
     {% include_cached body/sidebar-bg.html image=include.image color=include.color theme_color=include.theme_color %}
     {% include_cached body/sidebar-sticky.html %}
-
-      <!-- search box -->
-    <form action="/search">
-      <div class="tipue_search_box">
-        <input type="text" name="q" id="tipue_search_input" placeholder="&#xF002;  Search" pattern=".{2,}" title="최소 2글자 이상" required></div>
-      <div style="clear: both;"></div>
-    </form>
-    
   </header>
 </hy-drawer>
+<hr class="sr-only" hidden />

@@ -1,15 +1,25 @@
-{% assign google_fonts = site.google_fonts %}
-{% assign font_heading = site.font_heading %}
-{% assign font         = site.font         %}
+{% include head/meta.html %}
+<!-- tipuesearch -->
+<link rel="stylesheet" href="/assets/tipuesearch/css/tipuesearch.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/assets/tipuesearch/tipuesearch_content.js"></script>
+<script src="/assets/tipuesearch/tipuesearch_set.js"></script>
+<script src="/assets/tipuesearch/tipuesearch.min.js"></script>
 
-{% include        head/meta.html %}
-{% include_cached head/meta-static.html %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FBTD8XPGJQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-{% include        head/links.html lang=page.lang %}
-{% include_cached head/links-static.html %}
+  gtag('config', 'G-FBTD8XPGJQ');
+</script>
 
-{% include_cached head/scripts.html %}
+<meta name="naver-site-verification" content="8404ae8b51ef49d2338ffdcc2801dc63081c47b7" />
 
-{% include_cached head/styles.html layout=page.layout color=color theme_color=theme_color %}
-
+{% include head/links.html %}
+{% include head/scripts.html %}
+{% include head/styles.html %}
 {% include my-head.html %}
+

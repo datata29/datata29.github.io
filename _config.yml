@@ -59,11 +59,12 @@ copyright:             © 2023. All rights reserved.
 #     href:              /cookies-policy/
 
 # Format of the permalinks
-permalink:             pretty
+permalink:             none
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              5
 paginate_path:         /page-:num/
+excerpt_separator:     <!--more-->
 
 
 # Customizaton
@@ -94,6 +95,28 @@ font_heading:          Noto Sans KR, Helvetica, Arial, sans-serif
 # The font used for code blocks. Expects a string that is a valid CSS font-family value.
 font_code:             JetBrains Mono, Nanum Gothic Coding, Menlo, Monaco, Consolas, monospace;
 
+
+
+  # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
+  # but we want them to be `WebPage`s:
+  - scope:
+      type:            projects
+    values:
+      seo:
+        type:          WebPage
+  - scope:
+      type:            featured_categories
+    values:
+      seo:
+        type:          WebPage
+  - scope:
+      type:            featured_tags
+    values:
+      seo:
+        type:          WebPage
+
+
+
 # 3rd Party Integrations
 # ----------------------------------------------------------------------------------------
 
@@ -115,10 +138,10 @@ google_analytics:     G-FBTD8XPGJQ
 
 hydejack:
   # Configure the order of complementary content on blog posts
-  post_addons:         [about, newsletter, related]
+  post_addons:         [about]
 
   # Configure the order of complementary content on project pages
-  project_addons:      [about, newsletter, other]
+  project_addons:      [about, other]
 
   # If you do not use Google Fonts, set to `true`.
   no_google_fonts:     false
@@ -300,6 +323,7 @@ optional_front_matter:
 
 readme_index:
   remove_originals:    true
+  with_frontmatter:    true
 
 relative_links:
   collections:         true

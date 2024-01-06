@@ -1,5 +1,5 @@
 ---
-layout: tag_list
+layout: tag-list
 type: tag
 title: SQL
 slug: sql

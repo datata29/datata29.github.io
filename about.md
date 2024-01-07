@@ -9,9 +9,9 @@ order: 5
 
 ## 📱 컨택 
 
-* Linkedin : <a href="https://www.linkedin.com/in/datata29/"> 조의찬 (링크드인) : https://www.linkedin.com/in/datata29/ </a> <br>
+* Linkedin : <a href="https://www.linkedin.com/in/datata29/">  https://www.linkedin.com/in/datata29/ </a> <br>
 * E-mail : cec0729@gmail.com <br>
-* Tableau public :  <a href="https://public.tableau.com/app/profile/.31863300">datata29 : (태블로 프로필 링크)</a><br><br>
+* Tableau public :  <a href="https://public.tableau.com/app/profile/.31863300"> (태블로 프로필 링크)</a><br><br>
 
 ---
 ##  🔨 경력
@@ -74,7 +74,7 @@ order: 5
 
 
 ---
-## ⌨ 사용언어 <br>
+## ⌨ 사용언어 
 
 - `Python` ( `pandas`, `numpy`, `sckit_learn` ) <br>
 - `SQL` ( `Google Big Query` ) <br>
@@ -83,7 +83,7 @@ order: 5
 
 
 ---
-## 👍 장점 <br>
+## 👍 장점 
 
 - **추진력**이 강합니다. <br>
 - **성장**에 대한 욕심이 많습니다. <Br>

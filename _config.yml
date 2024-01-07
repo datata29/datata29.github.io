@@ -37,7 +37,7 @@ tagline:               >
 keywords:              [Data Analysis]
 
 # Used by jekyll-seo-tag...
-logo:                  /assets/img/profile5.jpeg
+logo:                  /assets/img/profile2.jpeg
 
 # This should be the same author as first entry in `_data/authors.yml`.
 # Duplication is necessary due to the `jekyll-feed`, `jekyll-seo-tag` plugin.

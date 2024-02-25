@@ -2,7 +2,7 @@
 layout: tag-list
 type: tag
 title: Tableau
-slug: sql
+slug: tableau
 category: 가이던스
 sidebar: true
 order: 1

@@ -84,7 +84,7 @@ order: 5
    - 데이터분석을 공부하게 된 계기  <br>
    
  - **인하대학교 빅데이터 동아리 '인빅'설립 및 회장역임** <br>
-   - <a href="https://datata29.github.io/회고록/inbig.html">( 관련 포스팅 )
+   - <a href="https://datata29.github.io/회고록/inbig.html">( 관련 포스팅 : "https://datata29.github.io/회고록/inbig.html")
    - 조직의 시스템을 처음부터 만들었기 때문에 시스템의 중요성을 누구보다 잘 알고있음. <br>
    - 다양한 학과 사람들과 (인문대, 상경대, 자연대, 공대) 커뮤니케이션을 많이 해봤기 때문에 <br>
      배경이 다르고 추구하는 바가 다른 사람들과 소통하는 것에 익숙함  <br>

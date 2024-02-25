@@ -1,7 +1,7 @@
 ---
 layout: list
-title: book review
-slug: book review
+title: Book Review
+slug: Book Review
 sidebar: true
 order: 4
 description: >

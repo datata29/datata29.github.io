@@ -29,6 +29,16 @@ layout: compress
   {% include head/index.html %}
 </head>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FBTD8XPGJQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FBTD8XPGJQ');
+</script>
+
 <body class="{% include_cached base-classes %}">
   {% include body/index.html %}
 </body>

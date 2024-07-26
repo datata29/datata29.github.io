@@ -102,7 +102,7 @@ font_code:             JetBrains Mono, Nanum Gothic Coding, Menlo, Monaco, Conso
 
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
-google_analytics:     G-FBTD8XPGJQs
+google_analytics:     G-FBTD8XPGJQ
 
 
 # Setting a disqus shortname will enable the comment section on

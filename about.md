@@ -88,6 +88,7 @@ order: 5
 - `SQL` ( `Google Big Query` ) <br>
 - `Tableau`  <br>
 - `Looker Studio`  <br>
+- `DataBricks Genie` <br>
 
 ---
 ## 👍 장점 ( Soft Skill )

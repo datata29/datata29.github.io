@@ -15,6 +15,25 @@ order: 5
 
 ---
 
+## ⌨ 기술 스택 ( Hard Skill )
+
+- `Python` ( `pandas`, `numpy`, `sckit_learn` ) <br>
+- `SQL` ( `Google Big Query` ) <br>
+- `Tableau`  <br>
+- `Looker Studio`  <br>
+- `DataBricks Genie` <br>
+
+---
+
+## 👍 장점 ( Soft Skill )
+
+- **추진력**이 강합니다. <br>
+- **성장**에 대한 욕심이 많습니다. <Br>
+- 팀원의 **피드백**을 적극 **수용**합니다. <Br>
+- **커뮤니케이션**의 중요성을 알고있습니다. <br>
+
+---
+
 ##  🔨 경력
 
 - **컴투스 사업운영센터 데이터전략실 데이터전략기획팀 (2022.8.16 ~  )** <br>
@@ -59,7 +78,7 @@ order: 5
     - 성장하고 있는 업종 제안, 지역별 성과 비교 분석  <br>
  
 ---
-##  🧰 성장 
+##  📈 성장 
 
  - **인하대학교 경영학과 비룡장학생(전액장학금) 입학** <br>
 
@@ -82,20 +101,14 @@ order: 5
   - 매주 새로운 데이터셋을 활용하여 태블로 대시보드 제작  <br>
 
 ---
-## ⌨ 기술 스택 ( Hard Skill )
+##  🧰 강연
 
-- `Python` ( `pandas`, `numpy`, `sckit_learn` ) <br>
-- `SQL` ( `Google Big Query` ) <br>
-- `Tableau`  <br>
-- `Looker Studio`  <br>
-- `DataBricks Genie` <br>
+  - **Tableau DataFest 2025 연사 참여** <br>
+    -  강연명 : Come to User, Com2us Tableau : 유저 친화적인 컴투스의 Tableau , AI 시대를 준비하다. <br>
+    -  <img src="{{ site.baseurl }}/assets/img/tableau_datafest2025.png"  width="80%" height="80%" > <br>
+    -  <a href="https://www.tableau.com/ko-kr/learn/webinars/datafest2025/com2us"> ( 강연 영상 : https://www.tableau.com/ko-kr/learn/webinars/datafest2025/com2us ) <br>
+    -  <a href="https://on.com2us.com/tech/com2us-tableau-datafest-2025/"> ( 강연 기사 : https://on.com2us.com/tech/com2us-tableau-datafest-2025/) <br>
+ 
 
----
-## 👍 장점 ( Soft Skill )
-
-- **추진력**이 강합니다. <br>
-- **성장**에 대한 욕심이 많습니다. <Br>
-- 팀원의 **피드백**을 적극 **수용**합니다. <Br>
-- **커뮤니케이션**의 중요성을 알고있습니다. <br>
 
 ---

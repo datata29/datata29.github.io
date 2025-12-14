@@ -105,9 +105,10 @@ order: 5
 
   - **Tableau DataFest 2025 연사 참여** <br>
     -  강연명 : Come to User, Com2us Tableau : 유저 친화적인 컴투스의 Tableau , AI 시대를 준비하다. <br>
-    -  <img src="{{ site.baseurl }}/assets/img/tableau_datafest2025.png"  width="80%" height="80%" > <br>
     -  <a href="https://www.tableau.com/ko-kr/learn/webinars/datafest2025/com2us"> ( 강연 영상 : https://www.tableau.com/ko-kr/learn/webinars/datafest2025/com2us ) <br>
     -  <a href="https://on.com2us.com/tech/com2us-tableau-datafest-2025/"> ( 강연 기사 : https://on.com2us.com/tech/com2us-tableau-datafest-2025/) <br>
+        <img src="{{ site.baseurl }}/assets/img/tableau_datafest2025.png"  width="60%" height="60%" > <br>
+
  
 
 

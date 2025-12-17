@@ -47,7 +47,7 @@ order: 5
 
   - 데이터 마트 설계 <br>
     -  지표를 위한 마트 테이블 설계 및 제작 <br>
-    -  메달리온 아키텍처 (브론즈>실버>골드) 를 활용한 마트 테이블 설계 <br>
+    -  메달리온 아키텍처 ( 브론즈 > 실버 > 골드 ) 를 활용한 마트 테이블 설계 <br>
 
   - 지표 분석 <br>
     - 지표 증감 원인 분석 : ex. C 타이틀 업데이트 시기별 코호트 집단의 과금 패턴 분석
@@ -83,7 +83,7 @@ order: 5
  - **인하대학교 경영학과 비룡장학생(전액장학금) 입학** <br>
 
  - **LG 유플러스 남부도매지점 재고담당 사무보조 (2016.7~2017.6)**  <br>
-   - 데이터분석을 공부하게 된 계기  <br>
+   - 데이터 분석을 공부하게 된 계기  <br>
    
  - **인하대학교 빅데이터 동아리 '인빅'설립 및 회장역임** <br>
    - <a href="https://datata29.github.io/회고록/inbig.html">( 관련 포스팅 : "https://datata29.github.io/회고록/inbig.html")
@@ -106,10 +106,8 @@ order: 5
   - **Tableau DataFest 2025 연사 참여** <br>
     -  강연명 : Come to User, Com2us Tableau : 유저 친화적인 컴투스의 Tableau , AI 시대를 준비하다. <br>
     -  <a href="https://www.tableau.com/ko-kr/learn/webinars/datafest2025/com2us"> ( 강연 영상 : https://www.tableau.com/ko-kr/learn/webinars/datafest2025/com2us ) <br>
-    -  <a href="https://on.com2us.com/tech/com2us-tableau-datafest-2025/"> ( 강연 기사 : https://on.com2us.com/tech/com2us-tableau-datafest-2025/) <br>
+    -  <a href="https://on.com2us.com/tech/com2us-tableau-datafest-2025/"> ( 강연 기사 : https://on.com2us.com/tech/com2us-tableau-datafest-2025/) <br><br>
         <img src="{{ site.baseurl }}/assets/img/tableau_datafest2025.png"  width="60%" height="60%" > <br>
-
- 
 
 
 ---

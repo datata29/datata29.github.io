@@ -11,7 +11,11 @@ author: author1
 ---
 
 
-## 1. 데이터 야놀자 2024 개요 및 참여 후기 <br>
+<div style="background-color:#fff9c4; color:#212121; text-align:left; padding:10px; border-radius:5px;">
+  <b>  1. 데이터 야놀자 2024 개요 및 참여 후기 </b>
+</div>
+
+<br>
 
 ### 데이터 야놀자 2024 개요
  - 행사 장소 : 광화문 Microsoft 사옥 13층 <Br>
@@ -41,10 +45,11 @@ author: author1
 
 
 ----
-  
-  
-## 2. 강연 요약  <br>
+<div style="background-color:#fff9c4; color:#212121; text-align:left; padding:10px; border-radius:5px;">
+  2. 강연 요약 
+</div>
 
+<br>
 
 | 강의명 | 강연자 |  
 | ------- | ---------------------- | 

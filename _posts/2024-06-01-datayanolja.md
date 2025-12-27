@@ -10,21 +10,20 @@ author: author1
 
 ---
 
-
 <div style="background-color:#fff9c4; color:#212121; text-align:left; padding:10px; border-radius:5px;">
   <b>  1. 데이터 야놀자 2024 개요 및 참여 후기 </b>
 </div>
 
 <br>
 
-### 데이터 야놀자 2024 개요
+**데이터 야놀자 2024 개요**
  - 행사 장소 : 광화문 Microsoft 사옥 13층 <Br>
  - 행사 일시 : 2024-06-01 토요일 10:00 ~ 19:00 <br>
  - 행사 구성 : 3개의 강의실이 있고 각 강의실에서 연사가 강의하면 참가자가 원하는 강의를 듣는 형식<br> 강의는 데이터 분석과 관련된 다양한 주제로 진행된다. <br><br>
 
 <img src="{{ site.baseurl }}/assets/img/datayanolja2024_timetable.png"  width="80%" height="80%" > <br>
 
-### 참여 후기 
+**참여 후기** 
 
 내가 데이터 야놀자 2024를 신청한 이유는 크게 2가지였다.<br>
  - 목표 1 : 다른 데이터 분석가들은 **어떻게 분석**을 하는지 알고싶었다. <br>
@@ -45,8 +44,9 @@ author: author1
 
 
 ----
+
 <div style="background-color:#fff9c4; color:#212121; text-align:left; padding:10px; border-radius:5px;">
-  2. 강연 요약 
+  <b> 2. 강연 요약 </b> 
 </div>
 
 <br>

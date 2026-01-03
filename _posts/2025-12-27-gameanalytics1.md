@@ -13,7 +13,7 @@ author: author1
 <img src="{{ site.baseurl }}/assets/img/d1_chart_1_dau.png"  width="80%" height="80%" > <br><br>
 <img src="{{ site.baseurl }}/assets/img/d1_chart_2_average_dau_of_week.png"  width="80%" height="80%" > <br><br>
 
-이 차트를 보고 트래픽이 견조한지, 운영상 이슈는 없었는지 , 앞으로의 과제는 무엇이며 ㅡㅠㄱ
+이 차트를 보고 트래픽이 견조한지, 운영상 이슈는 없었는지 , 앞으로의 과제는 무엇이며 <br>
 어떻게 개선할 수 있을지 종합적으로 살펴보자. ( 샘플 데이터 이용 )	<br>
 	
 차트 분석을 먼저 진행하고 이를 기반으로 최종 보고서를 작성하는 것으로	포스팅을 구성한다.	

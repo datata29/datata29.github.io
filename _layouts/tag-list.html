@@ -1,42 +1,27 @@
 ---
-# Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 layout: page
 ---
 
 {{ content }}
 
 {% assign posts = site.tags[page.slug] %}
-
 {% assign date_formats  = site.data.strings.date_formats               %}
 {% assign list_group_by = date_formats.list_group_by | default:"%Y"    %}
 {% assign list_entry    = date_formats.list_entry    | default:"%d %b" %}
 
 <div id="posts-container">
+{% assign prev_date = 0 %}
 {% assign post_index = 0 %}
 {% for post in posts %}
-  {% assign currentdate = post.date | date:list_group_by %}
-  {% if currentdate != date %}
+  {% assign current_date = post.date | date:list_group_by %}
+  {% if current_date != prev_date %}
     {% unless forloop.first %}</ul>{% endunless %}
-    <h2 id="{{ list_group_by | slugify }}-{{ currentdate | slugify }}" class="hr year-header" data-year="{{ currentdate }}">{{ currentdate }}</h2>
+    <h2 class="hr year-header" data-year="{{ current_date }}">{{ current_date }}</h2>
     <ul class="related-posts">
-    {% assign date = currentdate %}
+    {% assign prev_date = current_date %}
   {% endif %}
   <li class="post-item" data-index="{{ post_index }}">
-    <a href="{{ post.url | relative_url }}" class="post-link">
+    <a href="{{ post.url | relative_url }}">
       <span class="post-date">{{ post.date | date: list_entry }}</span>
       <span class="post-title">{{ post.title }}</span>
     </a>
@@ -46,128 +31,69 @@ layout: page
 {% endfor %}
 </div>
 
-<!-- 페이지네이션 UI -->
-<nav id="pagination" class="pagination-nav" style="display: none;">
-  <button id="prev-btn" class="page-btn nav-btn">&laquo; 이전</button>
-  <div id="page-numbers" class="page-numbers"></div>
-  <button id="next-btn" class="page-btn nav-btn">다음 &raquo;</button>
-</nav>
+<nav id="pagination" class="pagination-nav"></nav>
 
 <script>
-(function() {
-  const POSTS_PER_PAGE = 10;
-  const posts = document.querySelectorAll('.post-item');
-  const yearHeaders = document.querySelectorAll('.year-header');
-  const pagination = document.getElementById('pagination');
-  const pageNumbers = document.getElementById('page-numbers');
-  const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
-  
-  const totalPosts = posts.length;
-  const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
-  let currentPage = 1;
+var POSTS_PER_PAGE = 10;
+var posts = document.querySelectorAll('.post-item');
+var yearHeaders = document.querySelectorAll('.year-header');
+var pagination = document.getElementById('pagination');
+var totalPosts = posts.length;
+var totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
+var currentPage = 1;
 
-  // 페이지가 1개 이하면 페이지네이션 숨김
-  if (totalPages <= 1) {
-    pagination.style.display = 'none';
-    return;
-  }
-
+if (totalPages > 1) {
   pagination.style.display = 'flex';
-
-  function showPage(page) {
-    currentPage = page;
-    const start = (page - 1) * POSTS_PER_PAGE;
-    const end = start + POSTS_PER_PAGE;
-
-    // 모든 포스트 숨김
-    posts.forEach((post, index) => {
-      if (index >= start && index < end) {
-        post.style.display = '';
-      } else {
-        post.style.display = 'none';
-      }
-    });
-
-    // 연도 헤더 표시/숨김 (해당 연도에 보이는 글이 있으면 표시)
-    yearHeaders.forEach(header => {
-      const year = header.dataset.year;
-      const ul = header.nextElementSibling;
-      const visiblePosts = ul.querySelectorAll('.post-item:not([style*="display: none"])');
-      
-      if (visiblePosts.length > 0) {
-        header.style.display = '';
-        ul.style.display = '';
-      } else {
-        header.style.display = 'none';
-        ul.style.display = 'none';
-      }
-    });
-
-    updatePaginationUI();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function updatePaginationUI() {
-    // 이전/다음 버튼 상태
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = currentPage === totalPages;
-
-    // 페이지 번호 생성
-    pageNumbers.innerHTML = '';
-    
-    let startPage = Math.max(1, currentPage - 2);
-    let endPage = Math.min(totalPages, startPage + 4);
-    
-    if (endPage - startPage < 4) {
-      startPage = Math.max(1, endPage - 4);
-    }
-
-    // 첫 페이지
-    if (startPage > 1) {
-      addPageButton(1);
-      if (startPage > 2) {
-        const ellipsis = document.createElement('span');
-        ellipsis.textContent = '...';
-        ellipsis.className = 'page-ellipsis';
-        pageNumbers.appendChild(ellipsis);
-      }
-    }
-
-    // 페이지 번호들
-    for (let i = startPage; i <= endPage; i++) {
-      addPageButton(i);
-    }
-
-    // 마지막 페이지
-    if (endPage < totalPages) {
-      if (endPage < totalPages - 1) {
-        const ellipsis = document.createElement('span');
-        ellipsis.textContent = '...';
-        ellipsis.className = 'page-ellipsis';
-        pageNumbers.appendChild(ellipsis);
-      }
-      addPageButton(totalPages);
-    }
-  }
-
-  function addPageButton(pageNum) {
-    const btn = document.createElement('button');
-    btn.textContent = pageNum;
-    btn.className = 'page-btn page-num' + (pageNum === currentPage ? ' active' : '');
-    btn.addEventListener('click', () => showPage(pageNum));
-    pageNumbers.appendChild(btn);
-  }
-
-  prevBtn.addEventListener('click', () => {
-    if (currentPage > 1) showPage(currentPage - 1);
-  });
-
-  nextBtn.addEventListener('click', () => {
-    if (currentPage < totalPages) showPage(currentPage + 1);
-  });
-
-  // 초기 페이지 표시
   showPage(1);
-})();
+} else {
+  pagination.style.display = 'none';
+}
+
+function showPage(page) {
+  currentPage = page;
+  var start = (page - 1) * POSTS_PER_PAGE;
+  var end = start + POSTS_PER_PAGE;
+
+  for (var i = 0; i < posts.length; i++) {
+    if (i >= start && i < end) {
+      posts[i].style.display = '';
+    } else {
+      posts[i].style.display = 'none';
+    }
+  }
+
+  for (var j = 0; j < yearHeaders.length; j++) {
+    var header = yearHeaders[j];
+    var ul = header.nextElementSibling;
+    var visible = ul.querySelectorAll('.post-item:not([style*="display: none"])');
+    if (visible.length > 0) {
+      header.style.display = '';
+      ul.style.display = '';
+    } else {
+      header.style.display = 'none';
+      ul.style.display = 'none';
+    }
+  }
+
+  renderPagination();
+  window.scrollTo(0, 0);
+}
+
+function renderPagination() {
+  var html = '';
+  html += '<button class="page-btn nav-btn" onclick="goPage(' + (currentPage - 1) + ')"' + (currentPage === 1 ? ' disabled' : '') + '>&laquo; 이전</button>';
+  html += '<div class="page-numbers">';
+  for (var i = 1; i <= totalPages; i++) {
+    html += '<button class="page-btn page-num' + (i === currentPage ? ' active' : '') + '" onclick="goPage(' + i + ')">' + i + '</button>';
+  }
+  html += '</div>';
+  html += '<button class="page-btn nav-btn" onclick="goPage(' + (currentPage + 1) + ')"' + (currentPage === totalPages ? ' disabled' : '') + '>다음 &raquo;</button>';
+  pagination.innerHTML = html;
+}
+
+function goPage(page) {
+  if (page >= 1 && page <= totalPages) {
+    showPage(page);
+  }
+}
 </script>

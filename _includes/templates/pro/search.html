@@ -1,6 +1,22 @@
 <template id="_search-template">
-  <a href="/search/" id="_search" class="nav-btn no-hover" style="text-decoration: none;">
-    <span class="sr-only">{{ site.data.strings.search | default:"Search" }}</span>
+  <button id="_search" class="nav-btn no-hover" onclick="window.location.href='/search/'">
+    <label class="sr-only" for="_search-input">{{ site.data.strings.search | default:"Search" }}</label>
     <span class="icon-search"></span>
-  </a>
+  </button>
+  <div id="_search-box" style="display:none;">
+    <div class="nav-btn">
+      <span class="icon-search"></span>
+    </div>
+    <input
+      id="_search-input"
+      type="search"
+      class="form-control form-control-lg nav-btn"
+      placeholder="{{ site.data.strings.search_placeholder | default:'Type something...'}}"
+    />
+    <button type="reset" class="nav-btn no-hover">
+      <span class="sr-only">{{ site.data.strings.close | default:"Close" }}</span>
+      <span class="icon-cross"></span>
+    </button>
+  </div>
+  <div id="_hits"></div>
 </template>

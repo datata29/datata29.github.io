@@ -1,24 +1,272 @@
 ---
 title: Search
-description: "Search this site"
+description: "포스트 검색"
 layout: page
 permalink: /search/
-tipue_search_active: true
-exclude_from_search: true
 ---
 
+<div id="search-container">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="검색어를 입력하세요..." autocomplete="off">
+    <button id="search-btn" class="search-button">
+      <span class="icon-search">🔍</span>
+    </button>
+  </div>
+  
+  <div id="search-info"></div>
+  <div id="search-results"></div>
+</div>
 
+<style>
+.search-box {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
 
-<div id="tipue_search_content"></div>
+#search-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--body-bg);
+  color: var(--body-color);
+  transition: border-color 0.2s ease;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.search-button {
+  padding: 0.75rem 1.25rem;
+  background: var(--accent-color);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: opacity 0.2s ease;
+}
+
+.search-button:hover {
+  opacity: 0.85;
+}
+
+#search-info {
+  margin-bottom: 1rem;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+#search-results {
+  list-style: none;
+  padding: 0;
+}
+
+.search-result-item {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.search-result-item:hover {
+  border-color: var(--accent-color);
+}
+
+.search-result-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.search-result-title a {
+  color: var(--body-color);
+  text-decoration: none;
+}
+
+.search-result-title a:hover {
+  color: var(--accent-color);
+}
+
+.search-result-meta {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-bottom: 0.5rem;
+}
+
+.search-result-excerpt {
+  font-size: 0.9rem;
+  color: var(--gray-text);
+  line-height: 1.5;
+}
+
+.search-result-excerpt mark {
+  background: rgba(79, 177, 186, 0.3);
+  color: inherit;
+  padding: 0.1rem 0.2rem;
+  border-radius: 2px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  color: var(--gray);
+}
+</style>
 
 <script>
-$(document).ready(function() {
-  $('#tipue_search_input').tipuesearch({
-    'wholeWords': false,
-    'showTime' : false,
-    'minimumLength' : 2
+(function() {
+  let posts = [];
+  
+  // 검색 인덱스 로드
+  fetch('/assets/search.json')
+    .then(response => response.json())
+    .then(data => {
+      posts = data;
+    })
+    .catch(error => {
+      console.error('검색 인덱스 로드 실패:', error);
+    });
+
+  const searchInput = document.getElementById('search-input');
+  const searchBtn = document.getElementById('search-btn');
+  const searchInfo = document.getElementById('search-info');
+  const searchResults = document.getElementById('search-results');
+
+  function performSearch() {
+    const query = searchInput.value.trim().toLowerCase();
+    
+    if (query.length < 2) {
+      searchInfo.textContent = '2글자 이상 입력해주세요.';
+      searchResults.innerHTML = '';
+      return;
+    }
+
+    const results = posts.filter(post => {
+      const titleMatch = post.title.toLowerCase().includes(query);
+      const contentMatch = post.content.toLowerCase().includes(query);
+      const categoryMatch = post.categories && post.categories.some(cat => 
+        cat.toLowerCase().includes(query)
+      );
+      const tagMatch = post.tags && post.tags.some(tag => 
+        tag.toLowerCase().includes(query)
+      );
+      
+      return titleMatch || contentMatch || categoryMatch || tagMatch;
+    });
+
+    displayResults(results, query);
+  }
+
+  function displayResults(results, query) {
+    if (results.length === 0) {
+      searchInfo.textContent = '';
+      searchResults.innerHTML = `
+        <div class="no-results">
+          <p>"${escapeHtml(query)}"에 대한 검색 결과가 없습니다.</p>
+        </div>
+      `;
+      return;
+    }
+
+    searchInfo.textContent = `총 ${results.length}개의 결과를 찾았습니다.`;
+
+    const html = results.map(post => {
+      // 검색어 하이라이트
+      const highlightedTitle = highlightText(post.title, query);
+      
+      // 본문에서 검색어 주변 텍스트 추출
+      const excerpt = getExcerpt(post.content, query);
+      const highlightedExcerpt = highlightText(excerpt, query);
+      
+      // 카테고리와 태그
+      const categories = post.categories ? post.categories.join(', ') : '';
+      const tags = post.tags ? post.tags.join(', ') : '';
+      
+      return `
+        <div class="search-result-item">
+          <div class="search-result-title">
+            <a href="${post.url}">${highlightedTitle}</a>
+          </div>
+          <div class="search-result-meta">
+            📅 ${post.date}
+            ${categories ? ' · 📁 ' + categories : ''}
+            ${tags ? ' · 🏷️ ' + tags : ''}
+          </div>
+          <div class="search-result-excerpt">
+            ${highlightedExcerpt}
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    searchResults.innerHTML = html;
+  }
+
+  function getExcerpt(content, query) {
+    const lowerContent = content.toLowerCase();
+    const index = lowerContent.indexOf(query.toLowerCase());
+    
+    if (index === -1) {
+      return content.substring(0, 150) + '...';
+    }
+    
+    const start = Math.max(0, index - 50);
+    const end = Math.min(content.length, index + query.length + 100);
+    
+    let excerpt = content.substring(start, end);
+    
+    if (start > 0) excerpt = '...' + excerpt;
+    if (end < content.length) excerpt = excerpt + '...';
+    
+    return excerpt;
+  }
+
+  function highlightText(text, query) {
+    if (!query) return escapeHtml(text);
+    
+    const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escapedQuery})`, 'gi');
+    
+    return escapeHtml(text).replace(regex, '<mark>$1</mark>');
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // 검색 버튼 클릭
+  searchBtn.addEventListener('click', performSearch);
+
+  // Enter 키 입력
+  searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      performSearch();
+    }
   });
-});
+
+  // 실시간 검색 (타이핑 중)
+  let debounceTimer;
+  searchInput.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      if (searchInput.value.trim().length >= 2) {
+        performSearch();
+      } else if (searchInput.value.trim().length === 0) {
+        searchInfo.textContent = '';
+        searchResults.innerHTML = '';
+      }
+    }, 300);
+  });
+
+  // 페이지 로드 시 input에 포커스
+  searchInput.focus();
+})();
 </script>
-
-

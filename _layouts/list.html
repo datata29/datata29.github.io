@@ -81,13 +81,11 @@ function showPage(page) {
 
 function renderPagination() {
   var html = '';
-  html += '<button class="page-btn nav-btn" onclick="goPage(' + (currentPage - 1) + ')"' + (currentPage === 1 ? ' disabled' : '') + '>&laquo; 이전</button>';
   html += '<div class="page-numbers">';
   for (var i = 1; i <= totalPages; i++) {
     html += '<button class="page-btn page-num' + (i === currentPage ? ' active' : '') + '" onclick="goPage(' + i + ')">' + i + '</button>';
   }
   html += '</div>';
-  html += '<button class="page-btn nav-btn" onclick="goPage(' + (currentPage + 1) + ')"' + (currentPage === totalPages ? ' disabled' : '') + '>다음 &raquo;</button>';
   pagination.innerHTML = html;
 }
 

@@ -1,13 +1,12 @@
 ---
 layout: null
-permalink: /assets/search.json
 ---
 [
   {% for post in site.posts %}
   {
     "title": {{ post.title | jsonify }},
-    "url": {{ post.url | relative_url | jsonify }},
-    "date": {{ post.date | date: "%Y-%m-%d" | jsonify }},
+    "url": "{{ post.url | relative_url }}",
+    "date": "{{ post.date | date: '%Y-%m-%d' }}",
     "categories": {{ post.categories | jsonify }},
     "tags": {{ post.tags | jsonify }},
     "content": {{ post.content | strip_html | normalize_whitespace | truncate: 500 | jsonify }}

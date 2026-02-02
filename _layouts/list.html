@@ -25,16 +25,151 @@ layout: page
 {% assign list_group_by = date_formats.list_group_by | default:"%Y"    %}
 {% assign list_entry    = date_formats.list_entry    | default:"%d %b" %}
 
+<div id="posts-container">
 {% assign prev_date = 0 %}
+{% assign post_index = 0 %}
 {% if page.no_groups %}<ul class="related-posts">{% endif %}
 {% for post in posts %}
   {% assign current_date = post.date | date:list_group_by %}
   {% unless page.no_groups %}{% if current_date != prev_date %}
     {% unless forloop.first %}</ul>{% endunless %}
-    <h2 id="{{ list_group_by | slugify }}-{{ current_date | slugify }}" class="hr-bottom">{{ current_date }}</h2>
+    <h2 id="{{ list_group_by | slugify }}-{{ current_date | slugify }}" class="hr-bottom year-header" data-year="{{ current_date }}">{{ current_date }}</h2>
     <ul class="related-posts">
     {% assign prev_date = current_date %}
   {% endif %}{% endunless %}
-  {% include_cached components/post-list-item.html post=post format=list_entry %}
+  <li class="post-item" data-index="{{ post_index }}">
+    <a href="{{ post.url | relative_url }}" class="post-link">
+      <span class="post-date">{{ post.date | date: list_entry }}</span>
+      <span class="post-title">{{ post.title }}</span>
+    </a>
+  </li>
+  {% assign post_index = post_index | plus: 1 %}
   {% if forloop.last %}</ul>{% endif %}
 {% endfor %}
+</div>
+
+<!-- 페이지네이션 UI -->
+<nav id="pagination" class="pagination-nav" style="display: none;">
+  <button id="prev-btn" class="page-btn nav-btn">&laquo; 이전</button>
+  <div id="page-numbers" class="page-numbers"></div>
+  <button id="next-btn" class="page-btn nav-btn">다음 &raquo;</button>
+</nav>
+
+<script>
+(function() {
+  const POSTS_PER_PAGE = 10;
+  const posts = document.querySelectorAll('.post-item');
+  const yearHeaders = document.querySelectorAll('.year-header');
+  const pagination = document.getElementById('pagination');
+  const pageNumbers = document.getElementById('page-numbers');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  
+  const totalPosts = posts.length;
+  const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
+  let currentPage = 1;
+
+  // 페이지가 1개 이하면 페이지네이션 숨김
+  if (totalPages <= 1) {
+    pagination.style.display = 'none';
+    return;
+  }
+
+  pagination.style.display = 'flex';
+
+  function showPage(page) {
+    currentPage = page;
+    const start = (page - 1) * POSTS_PER_PAGE;
+    const end = start + POSTS_PER_PAGE;
+
+    // 모든 포스트 숨김
+    posts.forEach((post, index) => {
+      if (index >= start && index < end) {
+        post.style.display = '';
+      } else {
+        post.style.display = 'none';
+      }
+    });
+
+    // 연도 헤더 표시/숨김 (해당 연도에 보이는 글이 있으면 표시)
+    yearHeaders.forEach(header => {
+      const year = header.dataset.year;
+      const ul = header.nextElementSibling;
+      const visiblePosts = ul.querySelectorAll('.post-item:not([style*="display: none"])');
+      
+      if (visiblePosts.length > 0) {
+        header.style.display = '';
+        ul.style.display = '';
+      } else {
+        header.style.display = 'none';
+        ul.style.display = 'none';
+      }
+    });
+
+    updatePaginationUI();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function updatePaginationUI() {
+    // 이전/다음 버튼 상태
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+
+    // 페이지 번호 생성
+    pageNumbers.innerHTML = '';
+    
+    let startPage = Math.max(1, currentPage - 2);
+    let endPage = Math.min(totalPages, startPage + 4);
+    
+    if (endPage - startPage < 4) {
+      startPage = Math.max(1, endPage - 4);
+    }
+
+    // 첫 페이지
+    if (startPage > 1) {
+      addPageButton(1);
+      if (startPage > 2) {
+        const ellipsis = document.createElement('span');
+        ellipsis.textContent = '...';
+        ellipsis.className = 'page-ellipsis';
+        pageNumbers.appendChild(ellipsis);
+      }
+    }
+
+    // 페이지 번호들
+    for (let i = startPage; i <= endPage; i++) {
+      addPageButton(i);
+    }
+
+    // 마지막 페이지
+    if (endPage < totalPages) {
+      if (endPage < totalPages - 1) {
+        const ellipsis = document.createElement('span');
+        ellipsis.textContent = '...';
+        ellipsis.className = 'page-ellipsis';
+        pageNumbers.appendChild(ellipsis);
+      }
+      addPageButton(totalPages);
+    }
+  }
+
+  function addPageButton(pageNum) {
+    const btn = document.createElement('button');
+    btn.textContent = pageNum;
+    btn.className = 'page-btn page-num' + (pageNum === currentPage ? ' active' : '');
+    btn.addEventListener('click', () => showPage(pageNum));
+    pageNumbers.appendChild(btn);
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (currentPage > 1) showPage(currentPage - 1);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentPage < totalPages) showPage(currentPage + 1);
+  });
+
+  // 초기 페이지 표시
+  showPage(1);
+})();
+</script>

@@ -135,3 +135,86 @@ pre {
     border-right-width: calc(100vw + 100vh);
   }
 }
+
+// Pagination 스타일
+
+.pagination-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.page-btn {
+  background: var(--body-bg);
+  border: 1px solid var(--border-color);
+  color: var(--body-color);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  min-width: 2.5rem;
+  text-align: center;
+
+  &:hover:not(:disabled) {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  &.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+    font-weight: bold;
+  }
+}
+
+.nav-btn {
+  padding: 0.5rem 1rem;
+}
+
+.page-ellipsis {
+  padding: 0 0.5rem;
+  color: var(--gray);
+}
+
+.post-item {
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+.post-link {
+  display: flex;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  
+  &:hover {
+    color: var(--accent-color);
+  }
+}
+
+.post-date {
+  color: var(--gray);
+  min-width: 4rem;
+}
+
+.post-title {
+  flex: 1;
+}

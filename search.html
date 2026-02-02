@@ -117,28 +117,51 @@ permalink: /search/
   padding: 2rem;
   color: var(--gray);
 }
+
+.loading {
+  text-align: center;
+  padding: 1rem;
+  color: var(--gray);
+}
 </style>
 
 <script>
 (function() {
   let posts = [];
+  let isLoaded = false;
   
-  // 검색 인덱스 로드
-  fetch('/assets/search.json')
-    .then(response => response.json())
-    .then(data => {
-      posts = data;
-    })
-    .catch(error => {
-      console.error('검색 인덱스 로드 실패:', error);
-    });
-
   const searchInput = document.getElementById('search-input');
   const searchBtn = document.getElementById('search-btn');
   const searchInfo = document.getElementById('search-info');
   const searchResults = document.getElementById('search-results');
 
+  // 검색 인덱스 로드
+  searchInfo.textContent = '검색 데이터 로딩 중...';
+  
+  fetch('{{ site.baseurl }}/assets/search.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('HTTP error! status: ' + response.status);
+      }
+      return response.json();
+    })
+    .then(data => {
+      posts = data;
+      isLoaded = true;
+      searchInfo.textContent = '검색어를 입력하세요. (총 ' + posts.length + '개의 포스트)';
+      console.log('검색 인덱스 로드 완료:', posts.length + '개 포스트');
+    })
+    .catch(error => {
+      console.error('검색 인덱스 로드 실패:', error);
+      searchInfo.textContent = '검색 데이터를 불러오는데 실패했습니다.';
+    });
+
   function performSearch() {
+    if (!isLoaded) {
+      searchInfo.textContent = '검색 데이터를 로딩 중입니다. 잠시만 기다려주세요.';
+      return;
+    }
+
     const query = searchInput.value.trim().toLowerCase();
     
     if (query.length < 2) {
@@ -148,13 +171,18 @@ permalink: /search/
     }
 
     const results = posts.filter(post => {
-      const titleMatch = post.title.toLowerCase().includes(query);
-      const contentMatch = post.content.toLowerCase().includes(query);
-      const categoryMatch = post.categories && post.categories.some(cat => 
-        cat.toLowerCase().includes(query)
+      const title = (post.title || '').toLowerCase();
+      const content = (post.content || '').toLowerCase();
+      const categories = post.categories || [];
+      const tags = post.tags || [];
+      
+      const titleMatch = title.includes(query);
+      const contentMatch = content.includes(query);
+      const categoryMatch = categories.some(cat => 
+        (cat || '').toLowerCase().includes(query)
       );
-      const tagMatch = post.tags && post.tags.some(tag => 
-        tag.toLowerCase().includes(query)
+      const tagMatch = tags.some(tag => 
+        (tag || '').toLowerCase().includes(query)
       );
       
       return titleMatch || contentMatch || categoryMatch || tagMatch;
@@ -166,54 +194,56 @@ permalink: /search/
   function displayResults(results, query) {
     if (results.length === 0) {
       searchInfo.textContent = '';
-      searchResults.innerHTML = `
-        <div class="no-results">
-          <p>"${escapeHtml(query)}"에 대한 검색 결과가 없습니다.</p>
-        </div>
-      `;
+      searchResults.innerHTML = 
+        '<div class="no-results">' +
+          '<p>"' + escapeHtml(query) + '"에 대한 검색 결과가 없습니다.</p>' +
+        '</div>';
       return;
     }
 
-    searchInfo.textContent = `총 ${results.length}개의 결과를 찾았습니다.`;
+    searchInfo.textContent = '총 ' + results.length + '개의 결과를 찾았습니다.';
 
-    const html = results.map(post => {
+    let html = '';
+    for (let i = 0; i < results.length; i++) {
+      const post = results[i];
+      
       // 검색어 하이라이트
-      const highlightedTitle = highlightText(post.title, query);
+      const highlightedTitle = highlightText(post.title || '제목 없음', query);
       
       // 본문에서 검색어 주변 텍스트 추출
-      const excerpt = getExcerpt(post.content, query);
+      const excerpt = getExcerpt(post.content || '', query);
       const highlightedExcerpt = highlightText(excerpt, query);
       
       // 카테고리와 태그
-      const categories = post.categories ? post.categories.join(', ') : '';
-      const tags = post.tags ? post.tags.join(', ') : '';
+      const categories = (post.categories || []).join(', ');
+      const tags = (post.tags || []).join(', ');
       
-      return `
-        <div class="search-result-item">
-          <div class="search-result-title">
-            <a href="${post.url}">${highlightedTitle}</a>
-          </div>
-          <div class="search-result-meta">
-            📅 ${post.date}
-            ${categories ? ' · 📁 ' + categories : ''}
-            ${tags ? ' · 🏷️ ' + tags : ''}
-          </div>
-          <div class="search-result-excerpt">
-            ${highlightedExcerpt}
-          </div>
-        </div>
-      `;
-    }).join('');
+      html += '<div class="search-result-item">' +
+          '<div class="search-result-title">' +
+            '<a href="' + post.url + '">' + highlightedTitle + '</a>' +
+          '</div>' +
+          '<div class="search-result-meta">' +
+            '📅 ' + post.date +
+            (categories ? ' · 📁 ' + categories : '') +
+            (tags ? ' · 🏷️ ' + tags : '') +
+          '</div>' +
+          '<div class="search-result-excerpt">' +
+            highlightedExcerpt +
+          '</div>' +
+        '</div>';
+    }
 
     searchResults.innerHTML = html;
   }
 
   function getExcerpt(content, query) {
+    if (!content) return '';
+    
     const lowerContent = content.toLowerCase();
     const index = lowerContent.indexOf(query.toLowerCase());
     
     if (index === -1) {
-      return content.substring(0, 150) + '...';
+      return content.substring(0, 150) + (content.length > 150 ? '...' : '');
     }
     
     const start = Math.max(0, index - 50);
@@ -228,15 +258,16 @@ permalink: /search/
   }
 
   function highlightText(text, query) {
-    if (!query) return escapeHtml(text);
+    if (!query || !text) return escapeHtml(text || '');
     
     const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const regex = new RegExp(`(${escapedQuery})`, 'gi');
+    const regex = new RegExp('(' + escapedQuery + ')', 'gi');
     
     return escapeHtml(text).replace(regex, '<mark>$1</mark>');
   }
 
   function escapeHtml(text) {
+    if (!text) return '';
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
@@ -246,7 +277,7 @@ permalink: /search/
   searchBtn.addEventListener('click', performSearch);
 
   // Enter 키 입력
-  searchInput.addEventListener('keypress', (e) => {
+  searchInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
       performSearch();
     }
@@ -254,13 +285,13 @@ permalink: /search/
 
   // 실시간 검색 (타이핑 중)
   let debounceTimer;
-  searchInput.addEventListener('input', () => {
+  searchInput.addEventListener('input', function() {
     clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => {
+    debounceTimer = setTimeout(function() {
       if (searchInput.value.trim().length >= 2) {
         performSearch();
       } else if (searchInput.value.trim().length === 0) {
-        searchInfo.textContent = '';
+        searchInfo.textContent = isLoaded ? '검색어를 입력하세요. (총 ' + posts.length + '개의 포스트)' : '로딩 중...';
         searchResults.innerHTML = '';
       }
     }, 300);

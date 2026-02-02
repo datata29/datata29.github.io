@@ -7,297 +7,158 @@ permalink: /search/
 
 <div id="search-container">
   <div class="search-box">
-    <input type="text" id="search-input" placeholder="검색어를 입력하세요..." autocomplete="off">
-    <button id="search-btn" class="search-button">
-      <span class="icon-search">🔍</span>
-    </button>
+    <input type="text" id="search-input" placeholder="검색어를 입력하세요...">
+    <button id="search-btn">🔍</button>
   </div>
-  
-  <div id="search-info"></div>
+  <div id="search-info">검색 데이터 로딩 중...</div>
   <div id="search-results"></div>
 </div>
 
 <style>
-.search-box {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-#search-input {
-  flex: 1;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
-  background: var(--body-bg);
-  color: var(--body-color);
-  transition: border-color 0.2s ease;
-}
-
-#search-input:focus {
-  outline: none;
-  border-color: var(--accent-color);
-}
-
-.search-button {
-  padding: 0.75rem 1.25rem;
-  background: var(--accent-color);
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: opacity 0.2s ease;
-}
-
-.search-button:hover {
-  opacity: 0.85;
-}
-
-#search-info {
-  margin-bottom: 1rem;
-  color: var(--gray);
-  font-size: 0.9rem;
-}
-
-#search-results {
-  list-style: none;
-  padding: 0;
-}
-
-.search-result-item {
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  transition: border-color 0.2s ease;
-}
-
-.search-result-item:hover {
-  border-color: var(--accent-color);
-}
-
-.search-result-title {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.search-result-title a {
-  color: var(--body-color);
-  text-decoration: none;
-}
-
-.search-result-title a:hover {
-  color: var(--accent-color);
-}
-
-.search-result-meta {
-  font-size: 0.85rem;
-  color: var(--gray);
-  margin-bottom: 0.5rem;
-}
-
-.search-result-excerpt {
-  font-size: 0.9rem;
-  color: var(--gray-text);
-  line-height: 1.5;
-}
-
-.search-result-excerpt mark {
-  background: rgba(79, 177, 186, 0.3);
-  color: inherit;
-  padding: 0.1rem 0.2rem;
-  border-radius: 2px;
-}
-
-.no-results {
-  text-align: center;
-  padding: 2rem;
-  color: var(--gray);
-}
-
-.loading {
-  text-align: center;
-  padding: 1rem;
-  color: var(--gray);
-}
+.search-box { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+#search-input { flex: 1; padding: 0.75rem 1rem; font-size: 1rem; border: 2px solid var(--border-color); border-radius: 8px; background: var(--body-bg); color: var(--body-color); }
+#search-input:focus { outline: none; border-color: var(--accent-color); }
+#search-btn { padding: 0.75rem 1.25rem; background: var(--accent-color); border: none; border-radius: 8px; color: #fff; cursor: pointer; font-size: 1rem; }
+#search-btn:hover { opacity: 0.85; }
+#search-info { margin-bottom: 1rem; color: var(--gray); }
+.result-item { padding: 1rem; margin-bottom: 1rem; border: 1px solid var(--border-color); border-radius: 8px; }
+.result-item:hover { border-color: var(--accent-color); }
+.result-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 0.5rem; }
+.result-title a { color: var(--body-color); text-decoration: none; }
+.result-title a:hover { color: var(--accent-color); }
+.result-meta { font-size: 0.85rem; color: var(--gray); margin-bottom: 0.5rem; }
+.result-excerpt { font-size: 0.9rem; color: var(--gray-text); }
+.result-excerpt mark { background: rgba(79, 177, 186, 0.3); padding: 0.1rem 0.2rem; border-radius: 2px; }
+.no-results { text-align: center; padding: 2rem; color: var(--gray); }
 </style>
 
 <script>
-(function() {
-  let posts = [];
-  let isLoaded = false;
-  
-  const searchInput = document.getElementById('search-input');
-  const searchBtn = document.getElementById('search-btn');
-  const searchInfo = document.getElementById('search-info');
-  const searchResults = document.getElementById('search-results');
+var posts = [];
+var isLoaded = false;
 
-  // 검색 인덱스 로드
-  searchInfo.textContent = '검색 데이터 로딩 중...';
-  
-  fetch('{{ site.baseurl }}/search.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('HTTP error! status: ' + response.status);
-      }
-      return response.json();
-    })
-    .then(data => {
-      posts = data;
+var searchInput = document.getElementById('search-input');
+var searchBtn = document.getElementById('search-btn');
+var searchInfo = document.getElementById('search-info');
+var searchResults = document.getElementById('search-results');
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', '/search.json', true);
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === 4) {
+    if (xhr.status === 200) {
+      posts = JSON.parse(xhr.responseText);
       isLoaded = true;
       searchInfo.textContent = '검색어를 입력하세요. (총 ' + posts.length + '개의 포스트)';
-      console.log('검색 인덱스 로드 완료:', posts.length + '개 포스트');
-    })
-    .catch(error => {
-      console.error('검색 인덱스 로드 실패:', error);
+    } else {
       searchInfo.textContent = '검색 데이터를 불러오는데 실패했습니다.';
-    });
-
-  function performSearch() {
-    if (!isLoaded) {
-      searchInfo.textContent = '검색 데이터를 로딩 중입니다. 잠시만 기다려주세요.';
-      return;
     }
+  }
+};
+xhr.send();
 
-    const query = searchInput.value.trim().toLowerCase();
+function performSearch() {
+  if (!isLoaded) {
+    searchInfo.textContent = '로딩 중입니다. 잠시만 기다려주세요.';
+    return;
+  }
+  
+  var query = searchInput.value.trim().toLowerCase();
+  
+  if (query.length < 2) {
+    searchInfo.textContent = '2글자 이상 입력해주세요.';
+    searchResults.innerHTML = '';
+    return;
+  }
+  
+  var results = [];
+  for (var i = 0; i < posts.length; i++) {
+    var post = posts[i];
+    var title = (post.title || '').toLowerCase();
+    var content = (post.content || '').toLowerCase();
     
-    if (query.length < 2) {
-      searchInfo.textContent = '2글자 이상 입력해주세요.';
-      searchResults.innerHTML = '';
-      return;
+    if (title.indexOf(query) !== -1 || content.indexOf(query) !== -1) {
+      results.push(post);
     }
-
-    const results = posts.filter(post => {
-      const title = (post.title || '').toLowerCase();
-      const content = (post.content || '').toLowerCase();
-      const categories = post.categories || [];
-      const tags = post.tags || [];
-      
-      const titleMatch = title.includes(query);
-      const contentMatch = content.includes(query);
-      const categoryMatch = categories.some(cat => 
-        (cat || '').toLowerCase().includes(query)
-      );
-      const tagMatch = tags.some(tag => 
-        (tag || '').toLowerCase().includes(query)
-      );
-      
-      return titleMatch || contentMatch || categoryMatch || tagMatch;
-    });
-
-    displayResults(results, query);
   }
+  
+  displayResults(results, query);
+}
 
-  function displayResults(results, query) {
-    if (results.length === 0) {
-      searchInfo.textContent = '';
-      searchResults.innerHTML = 
-        '<div class="no-results">' +
-          '<p>"' + escapeHtml(query) + '"에 대한 검색 결과가 없습니다.</p>' +
-        '</div>';
-      return;
-    }
-
-    searchInfo.textContent = '총 ' + results.length + '개의 결과를 찾았습니다.';
-
-    let html = '';
-    for (let i = 0; i < results.length; i++) {
-      const post = results[i];
-      
-      // 검색어 하이라이트
-      const highlightedTitle = highlightText(post.title || '제목 없음', query);
-      
-      // 본문에서 검색어 주변 텍스트 추출
-      const excerpt = getExcerpt(post.content || '', query);
-      const highlightedExcerpt = highlightText(excerpt, query);
-      
-      // 카테고리와 태그
-      const categories = (post.categories || []).join(', ');
-      const tags = (post.tags || []).join(', ');
-      
-      html += '<div class="search-result-item">' +
-          '<div class="search-result-title">' +
-            '<a href="' + post.url + '">' + highlightedTitle + '</a>' +
-          '</div>' +
-          '<div class="search-result-meta">' +
-            '📅 ' + post.date +
-            (categories ? ' · 📁 ' + categories : '') +
-            (tags ? ' · 🏷️ ' + tags : '') +
-          '</div>' +
-          '<div class="search-result-excerpt">' +
-            highlightedExcerpt +
-          '</div>' +
-        '</div>';
-    }
-
-    searchResults.innerHTML = html;
+function displayResults(results, query) {
+  if (results.length === 0) {
+    searchInfo.textContent = '';
+    searchResults.innerHTML = '<div class="no-results">"' + escapeHtml(query) + '"에 대한 검색 결과가 없습니다.</div>';
+    return;
   }
-
-  function getExcerpt(content, query) {
-    if (!content) return '';
+  
+  searchInfo.textContent = '총 ' + results.length + '개의 결과를 찾았습니다.';
+  
+  var html = '';
+  for (var i = 0; i < results.length; i++) {
+    var post = results[i];
+    var title = highlightText(post.title || '제목 없음', query);
+    var excerpt = getExcerpt(post.content || '', query);
+    var highlightedExcerpt = highlightText(excerpt, query);
+    var categories = (post.categories || []).join(', ');
     
-    const lowerContent = content.toLowerCase();
-    const index = lowerContent.indexOf(query.toLowerCase());
-    
-    if (index === -1) {
-      return content.substring(0, 150) + (content.length > 150 ? '...' : '');
-    }
-    
-    const start = Math.max(0, index - 50);
-    const end = Math.min(content.length, index + query.length + 100);
-    
-    let excerpt = content.substring(start, end);
-    
-    if (start > 0) excerpt = '...' + excerpt;
-    if (end < content.length) excerpt = excerpt + '...';
-    
-    return excerpt;
+    html += '<div class="result-item">';
+    html += '<div class="result-title"><a href="' + post.url + '">' + title + '</a></div>';
+    html += '<div class="result-meta">📅 ' + post.date + (categories ? ' · 📁 ' + categories : '') + '</div>';
+    html += '<div class="result-excerpt">' + highlightedExcerpt + '</div>';
+    html += '</div>';
   }
+  
+  searchResults.innerHTML = html;
+}
 
-  function highlightText(text, query) {
-    if (!query || !text) return escapeHtml(text || '');
-    
-    const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const regex = new RegExp('(' + escapedQuery + ')', 'gi');
-    
-    return escapeHtml(text).replace(regex, '<mark>$1</mark>');
+function getExcerpt(content, query) {
+  var lowerContent = content.toLowerCase();
+  var index = lowerContent.indexOf(query);
+  
+  if (index === -1) {
+    return content.substring(0, 150) + '...';
   }
+  
+  var start = Math.max(0, index - 50);
+  var end = Math.min(content.length, index + query.length + 100);
+  var excerpt = content.substring(start, end);
+  
+  if (start > 0) excerpt = '...' + excerpt;
+  if (end < content.length) excerpt = excerpt + '...';
+  
+  return excerpt;
+}
 
-  function escapeHtml(text) {
-    if (!text) return '';
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-  }
+function highlightText(text, query) {
+  if (!text || !query) return escapeHtml(text || '');
+  var escaped = escapeHtml(text);
+  var regex = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  return escaped.replace(regex, '<mark>$1</mark>');
+}
 
-  // 검색 버튼 클릭
-  searchBtn.addEventListener('click', performSearch);
+function escapeHtml(text) {
+  var div = document.createElement('div');
+  div.textContent = text || '';
+  return div.innerHTML;
+}
 
-  // Enter 키 입력
-  searchInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
+searchBtn.addEventListener('click', performSearch);
+searchInput.addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') performSearch();
+});
+
+var timer;
+searchInput.addEventListener('input', function() {
+  clearTimeout(timer);
+  timer = setTimeout(function() {
+    if (searchInput.value.trim().length >= 2) {
       performSearch();
+    } else if (searchInput.value.trim().length === 0) {
+      searchInfo.textContent = isLoaded ? '검색어를 입력하세요. (총 ' + posts.length + '개의 포스트)' : '로딩 중...';
+      searchResults.innerHTML = '';
     }
-  });
+  }, 300);
+});
 
-  // 실시간 검색 (타이핑 중)
-  let debounceTimer;
-  searchInput.addEventListener('input', function() {
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(function() {
-      if (searchInput.value.trim().length >= 2) {
-        performSearch();
-      } else if (searchInput.value.trim().length === 0) {
-        searchInfo.textContent = isLoaded ? '검색어를 입력하세요. (총 ' + posts.length + '개의 포스트)' : '로딩 중...';
-        searchResults.innerHTML = '';
-      }
-    }, 300);
-  });
-
-  // 페이지 로드 시 input에 포커스
-  searchInput.focus();
-})();
+searchInput.focus();
 </script>

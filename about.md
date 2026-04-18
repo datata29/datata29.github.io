@@ -7,16 +7,17 @@ sidebar: true
 order: 5
 ---
 
-## 📱 컨택 
+약 5년의 기간동안 게임 및 B2C 서비스에서 데이터 분석과 데이터마트 구축, 지표 제작 등 B.I 업무 전반을 담당하며 데이터를 통해 <br>
+담당 프로젝트의 가려운 곳을 긁어주는 역할을 하고있습니다. 야구 게임 프로젝트를 메인으로 담당하고 있으며 , 매출 지표 분석을 통해 <br>
+매출액 기준 C타이틀의 연평균 30% 성장에 기여하고 있습니다 <br>
 
-* Linkedin : <a href="https://www.linkedin.com/in/datata29/">  https://www.linkedin.com/in/datata29/ </a> <br>
-* E-mail : cec0729@gmail.com <br>
-* Tableau public :  <a href="https://public.tableau.com/app/profile/.31863300"> (태블로 프로필 링크)</a><br><br>
+## 📱 컨택 
+- Linkedin : <a href="https://www.linkedin.com/in/datata29/">  https://www.linkedin.com/in/datata29/ </a> <br>
+- E-mail : cec0729@gmail.com <br>
 
 ---
 
 ## ⌨ 기술 스택 ( Hard Skill )
-
 - `Python` ( `pandas`, `numpy`, `sckit_learn` ) <br>
 - `SQL` ( `Google Big Query` ) <br>
 - `Tableau`  <br>
@@ -26,7 +27,6 @@ order: 5
 ---
 
 ## 👍 장점 ( Soft Skill )
-
 - **추진력**이 강합니다. <br>
 - **성장**에 대한 욕심이 많습니다. <Br>
 - 팀원의 **피드백**을 적극 **수용**합니다. <Br>
@@ -35,11 +35,8 @@ order: 5
 ---
 
 ##  🔨 경력
-
 - **컴투스 사업운영센터 데이터전략실 데이터전략기획팀 (2022.8.16 ~  )** <br>
-  
-  < 야구 타이틀 데이터 분석,  B.I 담당>
-
+    
   - 게임 성과를 측정할 수 있는 다양한 지표 제작 , 배포 , 관리 <br>
     -  구글 빅쿼리를 통해 저장된 데이터를 자사 BI툴, 태블로 , 루커 스튜디오 이용해 지표 제작하여 배포 <br>
     -  지표를 트래킹하며 수치 이상 여부  체크. 이상 발생시 지표 로직 점검 및 재처리 <br>
@@ -78,7 +75,6 @@ order: 5
  
 ---
 ##  📈 성장 
-
  - **인하대학교 경영학과 비룡장학생(전액장학금) 입학** <br>
 
  - **LG 유플러스 남부도매지점 재고담당 사무보조 (2016.7~2017.6)**  <br>
@@ -101,7 +97,6 @@ order: 5
 
 ---
 ##  🧰 강연
-
   - **Tableau DataFest 2025 연사 참여** <br>
     -  강연명 : Come to User, Com2us Tableau : 유저 친화적인 컴투스의 Tableau , AI 시대를 준비하다. <br>
     -  <a href="https://www.tableau.com/ko-kr/learn/webinars/datafest2025/com2us"> ( 강연 영상 : https://www.tableau.com/ko-kr/learn/webinars/datafest2025/com2us ) <br>

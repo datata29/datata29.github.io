@@ -217,4 +217,9 @@ pre {
 
 .post-title {
   flex: 1;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-color);      // 밑줄 색 (녹색 계열)
+  text-decoration-thickness: 2px;       // 밑줄 두께
+  text-underline-offset: 4px;
 }
+

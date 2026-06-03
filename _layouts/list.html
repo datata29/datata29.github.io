@@ -21,7 +21,7 @@ layout: page
     {% assign prev_date = current_date %}
   {% endif %}
   <li class="post-item" data-index="{{ post_index }}">
-    <a href="{{ post.url | relative_url }}">
+    <a href="{{ post.url | relative_url }}" class="post-link">
       <span class="post-date">{{ post.date | date: list_entry }}</span>
       <span class="post-title">{{ post.title }}</span>
     </a>

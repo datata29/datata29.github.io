@@ -15,7 +15,6 @@ author: author1
 <img src="{{ site.baseurl }}/assets/img/d2_chart_2_drop_off.png"  width="80%" height="80%" > <br><br>
 <img src="{{ site.baseurl }}/assets/img/d2_chart_3_step_conversion.png"  width="80%" height="80%" > <br><br>
 
-<br>
 첫번째 차트는 각 단계별 진행 유저수 , 두번째 차트는 단계별 이탈률 , 세번째 차트는 플랫폼별 단계별 전환률이다. <br>
 이 차트들을 활용해 어느 단계에서 유저들이 많이 이탈하는지 , 개선 지점은 어디일지 살펴보자. <br><br>
 
